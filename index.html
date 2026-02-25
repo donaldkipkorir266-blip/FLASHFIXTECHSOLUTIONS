@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASHFIXTECHSOLUTIONS | Digital Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide-react/0.263.1/lucide-react.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        :root {
+            --brand-blue: #0ea5e9;
+            --brand-dark: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #0ea5e9, #2563eb);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: rgba(14, 165, 233, 0.5);
+        }
+
+        /* Admin Secret Access */
+        #admin-trigger { cursor: default; user-select: none; }
+        
+        .hidden-panel { display: none; }
+        .active-panel { display: block; }
+        
+        /* Hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center font-bold text-white">F</div>
+                    <span class="text-xl font-extrabold tracking-tighter uppercase">FlashFix<span class="text-sky-500">Tech</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#home" class="hover:text-sky-400 transition">Home</a>
+                    <a href="#services" class="hover:text-sky-400 transition">Services</a>
+                    <a href="#portfolio" class="hover:text-sky-400 transition">Portfolio</a>
+                    <a href="#shop" class="hover:text-sky-400 transition">Store</a>
+                    <a href="#about" class="hover:text-sky-400 transition">About</a>
+                    <a href="#contact" class="px-5 py-2 btn-primary rounded-full text-white">Get Started</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m7 6H4"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 px-4 py-4 space-y-3">
+            <a href="#home" class="block py-2">Home</a>
+            <a href="#services" class="block py-2">Services</a>
+            <a href="#portfolio" class="block py-2">Portfolio</a>
+            <a href="#shop" class="block py-2">Store</a>
+            <a href="#contact" class="block py-2 text-sky-400">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+            <div class="absolute top-20 left-1/4 w-72 h-72 bg-sky-500/20 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-20 right-1/4 w-72 h-72 bg-indigo-500/20 rounded-full blur-[120px]"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-400 text-xs font-bold uppercase tracking-widest">
+                Fast • Professional • Digital
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Accelerating Your <br><span class="gradient-text">Digital Presence</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-gray-400 text-lg mb-10">
+                From high-end graphic design to custom web development, FLASHFIXTECHSOLUTIONS provides the tools you need to dominate the digital landscape.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#services" class="px-8 py-4 btn-primary rounded-xl font-bold text-white">Explore Services</a>
+                <a href="#shop" class="px-8 py-4 glass hover:bg-white/5 rounded-xl font-bold transition">Browse Website Store</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 pb-20">
+        <div class="text-center">
+            <div class="text-3xl font-bold text-white">500+</div>
+            <div class="text-sky-500 text-sm">Projects Done</div>
+        </div>
+        <div class="text-center">
+            <div class="text-3xl font-bold text-white">100%</div>
+            <div class="text-sky-500 text-sm">Satisfaction</div>
+        </div>
+        <div class="text-center">
+            <div class="text-3xl font-bold text-white">24/7</div>
+            <div class="text-sky-500 text-sm">Support</div>
+        </div>
+        <div class="text-center">
+            <div class="text-3xl font-bold text-white">4.9/5</div>
+            <div class="text-sky-500 text-sm">Client Rating</div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Core <span class="text-sky-500">Expertise</span></h2>
+                <p class="text-gray-400">High-performance solutions tailored to your business needs.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Graphic Design -->
+                <div class="p-8 glass rounded-2xl card-hover border border-white/5">
+                    <div class="w-12 h-12 bg-sky-500/20 text-sky-400 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Graphic Design</h3>
+                    <p class="text-gray-400 text-sm mb-6">Logo creation, posters, business cards, and comprehensive brand identity design.</p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li>• Custom Branding</li>
+                        <li>• Professional Logos</li>
+                        <li>• Marketing Collateral</li>
+                    </ul>
+                </div>
+
+                <!-- Web Development -->
+                <div class="p-8 glass rounded-2xl card-hover border border-white/5">
+                    <div class="w-12 h-12 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Web Design</h3>
+                    <p class="text-gray-400 text-sm mb-6">Responsive, fast-loading, and SEO-optimized websites for businesses of all sizes.</p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li>• Portfolio Sites</li>
+                        <li>• E-commerce Solutions</li>
+                        <li>• Landing Pages</li>
+                    </ul>
+                </div>
+
+                <!-- Media Management -->
+                <div class="p-8 glass rounded-2xl card-hover border border-white/5">
+                    <div class="w-12 h-12 bg-rose-500/20 text-rose-400 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multimedia</h3>
+                    <p class="text-gray-400 text-sm mb-6">Expert video editing, professional photo retouching, and social media content creation.</p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li>• Video Ads</li>
+                        <li>• Photo Restoration</li>
+                        <li>• Content Strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="text-3xl font-bold mb-2">Our <span class="text-sky-500">Portfolio</span></h2>
+                    <p class="text-gray-400">A showcase of our recent creative achievements.</p>
+                </div>
+                <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+                    <button onclick="filterPortfolio('all')" class="px-4 py-2 rounded-full glass border border-sky-500 text-sky-500 text-xs font-bold whitespace-nowrap">All Work</button>
+                    <button onclick="filterPortfolio('graphics')" class="px-4 py-2 rounded-full glass border border-white/10 text-xs font-bold whitespace-nowrap hover:border-sky-500 transition">Graphics</button>
+                    <button onclick="filterPortfolio('web')" class="px-4 py-2 rounded-full glass border border-white/10 text-xs font-bold whitespace-nowrap hover:border-sky-500 transition">Web</button>
+                    <button onclick="filterPortfolio('video')" class="px-4 py-2 rounded-full glass border border-white/10 text-xs font-bold whitespace-nowrap hover:border-sky-500 transition">Video</button>
+                </div>
+            </div>
+
+            <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamic Content Loads Here -->
+                <div class="animate-pulse bg-slate-800 rounded-2xl h-64"></div>
+                <div class="animate-pulse bg-slate-800 rounded-2xl h-64"></div>
+                <div class="animate-pulse bg-slate-800 rounded-2xl h-64"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Store Section -->
+    <section id="shop" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Websites for <span class="text-sky-500">Sale</span></h2>
+            <p class="text-gray-400 mb-12">Ready-to-deploy digital foundations for your next big idea.</p>
+            
+            <div id="shop-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                <!-- Dynamic Content Loads Here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Order/Contact Form -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="glass p-8 md:p-12 rounded-3xl border border-white/10">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">Book a Service</h2>
+                    <p class="text-gray-400">Tell us what you need and we'll get back to you instantly.</p>
+                </div>
+                
+                <form id="order-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-300">Full Name</label>
+                            <input type="text" id="order-name" required class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-sky-500" placeholder="John Doe">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-300">Service Type</label>
+                            <select id="order-service" required class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-sky-500 appearance-none">
+                                <option value="Graphic Design">Graphic Design</option>
+                                <option value="Web Design">Web Design</option>
+                                <option value="Video Editing">Video Editing</option>
+                                <option value="Social Media Management">Social Media Management</option>
+                                <option value="Custom Project">Custom Project</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-gray-300">Project Details</label>
+                        <textarea id="order-details" rows="4" required class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-sky-500" placeholder="Describe your vision..."></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-gray-300">Budget Estimate (KES)</label>
+                        <input type="number" id="order-budget" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-sky-500" placeholder="Optional">
+                    </div>
+
+                    <button type="submit" class="w-full py-4 btn-primary rounded-xl font-bold flex items-center justify-center space-x-2">
+                        <span>Send via WhatsApp</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.589.943 3.129 1.416 4.647 1.417 5.432 0 9.852-4.421 9.855-9.853.002-2.633-1.025-5.105-2.892-6.974-1.867-1.868-4.339-2.893-6.97-2.895-5.433 0-9.853 4.421-9.855 9.853-.001 1.918.541 3.731 1.568 5.244l-1.03 3.76 3.877-1.017zm11.367-7.635c-.31-.155-1.837-.906-2.12-.1.103-.31.155-1.837-.906-2.121-1.01-.141-.235-.22-.31-.383-.075-.162-.038-.31-.019-.444.019-.133.17-.417.255-.611.085-.194.158-.417.075-.583s-.31-.417-.425-.694c-.115-.277-.24-.239-.33-.244-.085-.005-.182-.006-.279-.006-.097 0-.255.036-.388.182-.133.146-.509.497-.509 1.212 0 .715.521 1.406.594 1.503.073.097 1.025 1.566 2.483 2.196.347.15.617.24.828.307.348.11.665.094.915.057.278-.041.837-.342.953-.672.116-.33.116-.613.082-.672-.034-.059-.125-.094-.435-.249z"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Modal (Overlay) -->
+    <div id="admin-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4 bg-slate-950/90 backdrop-blur-xl">
+        <div class="w-full max-w-4xl max-h-[90vh] glass rounded-3xl p-8 border border-sky-500/30 overflow-y-auto no-scrollbar relative">
+            <button onclick="closeAdmin()" class="absolute top-6 right-6 text-gray-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div id="admin-login-view" class="max-w-md mx-auto py-10">
+                <h2 class="text-3xl font-extrabold mb-6 text-center">Admin <span class="text-sky-500">Access</span></h2>
+                <div class="space-y-4">
+                    <input type="password" id="admin-pass" class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-sky-500" placeholder="Enter Access Key">
+                    <button onclick="checkAdmin()" class="w-full py-3 btn-primary rounded-xl font-bold">Login Dashboard</button>
+                    <p class="text-center text-xs text-gray-500 mt-4">Restricted access area.</p>
+                </div>
+            </div>
+
+            <div id="admin-dashboard-view" class="hidden">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                    <h2 class="text-2xl font-bold">Manager <span class="text-sky-500">Dashboard</span></h2>
+                    <div class="flex gap-2">
+                        <button onclick="switchTab('portfolio')" class="px-4 py-2 bg-sky-500/10 text-sky-400 rounded-lg text-sm font-bold border border-sky-500/20">Portfolio</button>
+                        <button onclick="switchTab('store')" class="px-4 py-2 bg-sky-500/10 text-sky-400 rounded-lg text-sm font-bold border border-sky-500/20">Store</button>
+                        <button onclick="switchTab('bookings')" class="px-4 py-2 bg-sky-500/10 text-sky-400 rounded-lg text-sm font-bold border border-sky-500/20">Bookings</button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Tab -->
+                <div id="tab-portfolio" class="admin-tab">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="glass p-6 rounded-2xl border border-white/5">
+                            <h3 class="font-bold mb-4">Add Portfolio Item</h3>
+                            <div class="space-y-4">
+                                <input type="text" id="p-title" placeholder="Project Title" class="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-2 text-sm">
+                                <select id="p-cat" class="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-2 text-sm">
+                                    <option value="graphics">Graphics</option>
+                                    <option value="web">Web</option>
+                                    <option value="video">Video</option>
+                                </select>
+                                <input type="file" id="p-img" accept="image/*" class="w-full text-xs text-gray-400">
+                                <button onclick="addItem('portfolio')" class="w-full py-2 btn-primary rounded-lg text-sm font-bold">Upload & Save</button>
+                            </div>
+                        </div>
+                        <div class="space-y-3" id="admin-portfolio-list">
+                            <!-- Items appear here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Store Tab -->
+                <div id="tab-store" class="admin-tab hidden">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="glass p-6 rounded-2xl border border-white/5">
+                            <h3 class="font-bold mb-4">Add Website to Store</h3>
+                            <div class="space-y-4">
+                                <input type="text" id="s-title" placeholder="Template Name" class="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-2 text-sm">
+                                <input type="number" id="s-price" placeholder="Price (KES)" class="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-2 text-sm">
+                                <textarea id="s-desc" placeholder="Brief Description" class="w-full bg-slate-900 border border-white/10 rounded-lg px-4 py-2 text-sm h-20"></textarea>
+                                <input type="file" id="s-img" accept="image/*" class="w-full text-xs text-gray-400">
+                                <button onclick="addItem('store')" class="w-full py-2 btn-primary rounded-lg text-sm font-bold">Add to Shop</button>
+                            </div>
+                        </div>
+                        <div class="space-y-3" id="admin-store-list">
+                            <!-- Items appear here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Tab -->
+                <div id="tab-bookings" class="admin-tab hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="text-gray-500 border-b border-white/10">
+                                    <th class="py-3">Client</th>
+                                    <th class="py-3">Service</th>
+                                    <th class="py-3">Details</th>
+                                    <th class="py-3">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-bookings-list">
+                                <!-- Bookings load here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-6 mb-8 text-gray-400">
+                <a href="#" class="hover:text-sky-500 transition">Twitter</a>
+                <a href="#" class="hover:text-sky-500 transition">Instagram</a>
+                <a href="#" class="hover:text-sky-500 transition">Behance</a>
+                <a href="#" class="hover:text-sky-500 transition">GitHub</a>
+            </div>
+            <p id="admin-trigger" class="text-sm text-gray-500">&copy; 2024 FLASHFIXTECHSOLUTIONS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase Configuration and Logic -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+        const firebaseConfig = JSON.parse(window.__firebase_config || '{}');
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'flashfix-v1';
+
+        // State
+        let portfolioData = [];
+        let storeData = [];
+        let bookingsData = [];
+
+        // UI Helpers
+        window.toggleMobileMenu = () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        };
+
+        // Secret Admin Access (Click footer text 5 times)
+        let clickCount = 0;
+        document.getElementById('admin-trigger').addEventListener('click', () => {
+            clickCount++;
+            if (clickCount === 5) {
+                document.getElementById('admin-modal').classList.remove('hidden');
+                clickCount = 0;
+            }
+        });
+
+        window.closeAdmin = () => {
+            document.getElementById('admin-modal').classList.add('hidden');
+            document.getElementById('admin-login-view').classList.remove('hidden');
+            document.getElementById('admin-dashboard-view').classList.add('hidden');
+        };
+
+        window.checkAdmin = () => {
+            const pass = document.getElementById('admin-pass').value;
+            // Secret key (Change this or use a more secure method)
+            if (pass === 'flashfix2024') {
+                document.getElementById('admin-login-view').classList.add('hidden');
+                document.getElementById('admin-dashboard-view').classList.remove('hidden');
+                renderAdminPortfolio();
+                renderAdminStore();
+                renderAdminBookings();
+            } else {
+                alert('Access Denied');
+            }
+        };
+
+        window.switchTab = (tab) => {
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.add('hidden'));
+            document.getElementById(`tab-${tab}`).classList.remove('hidden');
+        };
+
+        // Auth Logic & Real-time Listeners
+        const init = async () => {
+            try {
+                // RULE 3: Auth Before Queries
+                if (typeof window.__initial_auth_token !== 'undefined' && window.__initial_auth_token) {
+                    await signInWithCustomToken(auth, window.__initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                // Wait for user context
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        setupListeners();
+                    }
+                });
+            } catch (error) {
+                console.error("Auth initialization failed", error);
+            }
+        };
+
+        function setupListeners() {
+            // Portfolio
+            onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'portfolio'), (snapshot) => {
+                portfolioData = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+                renderPortfolio();
+                if (!document.getElementById('admin-dashboard-view').classList.contains('hidden')) renderAdminPortfolio();
+            }, (error) => console.error("Portfolio listener error:", error));
+
+            // Store
+            onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'store'), (snapshot) => {
+                storeData = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+                renderStore();
+                if (!document.getElementById('admin-dashboard-view').classList.contains('hidden')) renderAdminStore();
+            }, (error) => console.error("Store listener error:", error));
+
+            // Bookings
+            onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'bookings'), (snapshot) => {
+                bookingsData = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+                if (!document.getElementById('admin-dashboard-view').classList.contains('hidden')) renderAdminBookings();
+            }, (error) => console.error("Bookings listener error:", error));
+        }
+
+        // File to Base64 (Local upload simulation)
+        async function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Add Content
+        window.addItem = async (type) => {
+            if (!auth.currentUser) return alert('Authenticating... please try again in a moment.');
+
+            if (type === 'portfolio') {
+                const title = document.getElementById('p-title').value;
+                const cat = document.getElementById('p-cat').value;
+                const file = document.getElementById('p-img').files[0];
+                if (!title || !file) return alert('Title and Image required');
+                
+                const imgBase64 = await fileToBase64(file);
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'portfolio'), {
+                    title, category: cat, image: imgBase64, createdAt: serverTimestamp()
+                });
+                alert('Project added!');
+                document.getElementById('p-title').value = '';
+                document.getElementById('p-img').value = '';
+            } else if (type === 'store') {
+                const title = document.getElementById('s-title').value;
+                const price = document.getElementById('s-price').value;
+                const desc = document.getElementById('s-desc').value;
+                const file = document.getElementById('s-img').files[0];
+                if (!title || !price || !file) return alert('All fields required');
+
+                const imgBase64 = await fileToBase64(file);
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'store'), {
+                    title, price, description: desc, image: imgBase64, createdAt: serverTimestamp()
+                });
+                alert('Website added to store!');
+                document.getElementById('s-title').value = '';
+                document.getElementById('s-price').value = '';
+                document.getElementById('s-desc').value = '';
+                document.getElementById('s-img').value = '';
+            }
+        };
+
+        window.deleteItem = async (col, id) => {
+            if (confirm('Are you sure you want to delete this?')) {
+                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', col, id));
+            }
+        };
+
+        // Render Functions
+        function renderPortfolio(filter = 'all') {
+            const grid = document.getElementById('portfolio-grid');
+            if (!grid) return;
+            const items = filter === 'all' ? portfolioData : portfolioData.filter(i => i.category === filter);
+            
+            grid.innerHTML = items.length ? items.map(item => `
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] glass border border-white/10">
+                    <img src="${item.image}" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="${item.title}">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-sky-400 text-xs font-bold uppercase mb-1">${item.category}</span>
+                        <h4 class="text-xl font-bold">${item.title}</h4>
+                    </div>
+                </div>
+            `).join('') : '<p class="text-gray-500 col-span-full py-20 text-center">No projects to show yet.</p>';
+        }
+
+        window.filterPortfolio = (cat) => renderPortfolio(cat);
+
+        function renderStore() {
+            const grid = document.getElementById('shop-grid');
+            if (!grid) return;
+            grid.innerHTML = storeData.length ? storeData.map(item => `
+                <div class="glass border border-white/10 rounded-3xl overflow-hidden card-hover">
+                    <div class="h-52 bg-slate-800 relative">
+                        <img src="${item.image}" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-sky-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            KES ${Number(item.price).toLocaleString()}
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">${item.title}</h3>
+                        <p class="text-gray-400 text-sm mb-6">${item.description}</p>
+                        <button onclick="buyNow('${item.title}', ${item.price})" class="w-full py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-bold transition flex items-center justify-center space-x-2">
+                            <span>Buy Now</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            `).join('') : '<p class="text-gray-500 col-span-full py-20 text-center">Our digital store is being stocked. Check back soon!</p>';
+        }
+
+        function renderAdminPortfolio() {
+            const list = document.getElementById('admin-portfolio-list');
+            if (!list) return;
+            list.innerHTML = portfolioData.map(item => `
+                <div class="flex items-center justify-between p-3 bg-slate-900 rounded-xl border border-white/5">
+                    <div class="flex items-center space-x-3">
+                        <img src="${item.image}" class="w-10 h-10 rounded object-cover">
+                        <span class="text-sm font-medium">${item.title}</span>
+                    </div>
+                    <button onclick="deleteItem('portfolio', '${item.id}')" class="text-rose-500 hover:text-rose-400 text-xs font-bold">Delete</button>
+                </div>
+            `).join('');
+        }
+
+        function renderAdminStore() {
+            const list = document.getElementById('admin-store-list');
+            if (!list) return;
+            list.innerHTML = storeData.map(item => `
+                <div class="flex items-center justify-between p-3 bg-slate-900 rounded-xl border border-white/5">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm font-medium">${item.title}</span>
+                        <span class="text-sky-500 text-xs font-bold">KES ${item.price}</span>
+                    </div>
+                    <button onclick="deleteItem('store', '${item.id}')" class="text-rose-500 hover:text-rose-400 text-xs font-bold">Delete</button>
+                </div>
+            `).join('');
+        }
+
+        function renderAdminBookings() {
+            const list = document.getElementById('admin-bookings-list');
+            if (!list) return;
+            list.innerHTML = bookingsData.map(item => `
+                <tr class="border-b border-white/5">
+                    <td class="py-4 font-medium">${item.name}</td>
+                    <td class="py-4 text-sky-400 text-xs uppercase font-bold">${item.service}</td>
+                    <td class="py-4 text-gray-400 text-xs italic">${item.details}</td>
+                    <td class="py-4 text-gray-500 text-xs">${item.createdAt ? item.createdAt.toDate().toLocaleDateString() : 'Just now'}</td>
+                </tr>
+            `).join('');
+        }
+
+        // WhatsApp Integration
+        window.buyNow = (title, price) => {
+            const msg = `Hello FlashFix! I'm interested in buying the website template: ${title} (Price: KES ${price}). Let's discuss payment.`;
+            window.open(`https://wa.me/254705305516?text=${encodeURIComponent(msg)}`, '_blank');
+        };
+
+        // Form Submission
+        document.getElementById('order-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!auth.currentUser) return alert('Connecting to server... please wait.');
+
+            const btn = e.target.querySelector('button');
+            btn.disabled = true;
+            btn.innerText = 'Submitting...';
+
+            const data = {
+                name: document.getElementById('order-name').value,
+                service: document.getElementById('order-service').value,
+                details: document.getElementById('order-details').value,
+                budget: document.getElementById('order-budget').value,
+                createdAt: serverTimestamp()
+            };
+
+            try {
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'bookings'), data);
+                
+                const msg = `*NEW BOOKING*\n\n*Client:* ${data.name}\n*Service:* ${data.service}\n*Budget:* KES ${data.budget || 'N/A'}\n*Details:* ${data.details}`;
+                window.open(`https://wa.me/254705305516?text=${encodeURIComponent(msg)}`, '_blank');
+                
+                e.target.reset();
+                alert('Booking submitted successfully!');
+            } catch (err) {
+                console.error(err);
+                alert('Something went wrong. Please try again.');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Send via WhatsApp';
+            }
+        });
+
+        // Initialize App
+        init();
+
+    </script>
+</body>
+</html>
